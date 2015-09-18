@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* CSS Document */
+
+#page{
+/* 	background-position: center;
+background-size:cover;
+background-attachment: fixed; */
+background-size:100% 100%;
+	background-image:url("../../images/login.png");
+	}
+/* body{} */
+	
+#lIcon fa fa-check{font-size:1em;font-family:Verdana, Geneva, sans-serif}
+	
+#content{
+/*	background-color:#FFF;
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);*/
+	background-color:transparent;
+/*	filter:alpha(opacity=50); 
+	-moz-opacity:0.50;
+	opacity:0.50;*/
+	margin-top:5em;
+	border:none;
+	}
+	
+.list-ul{
+	/* background-color: #000; */
+ /* 	filter:alpha(opacity=50); 
+	-moz-opacity:0.50;
+	opacity:0.50;  */
+/* 	border:5px #fff solid; */
+	}
+ul .list-li{height:2.5em;padding-top:0em;/* border:1px #000 solid; */ margin-left:.5em;margin-right:.5em;}
+
+#username,#password{
+	background-color: transparent;
+	color:#f00;
+/*	filter:alpha(opacity=60);  /*支持 IE 浏览器*/
+    -moz-opacity:0.7; /* 支持 FireFox 浏览器 */
+	opacity:0.7;  /* 支持 Chrome, Opera, Safari 等浏览器  */
+	width:100%;
+	height:2.8em;
+	margin-left:.5em;
+	margin-top:.5em;
+	margin-right:.5em;
+	border:none
+	}
+	
+	
+.regist_form input:focus:invalid, .regist_form textarea:focus:invalid { /* when a field is considered invalid by the browser */
+    /* background: #fff url(images/invalid.png) no-repeat 98% center; */
+    box-shadow: 0 0 5px #d45252;
+    border-color: #b03535
+}
+
+#submit1{background-color:#FF7979; width:100%; height:100%;}
+#submit2{background-color:#ccc; width:0%; height:0%;
+}
+#chg-input{width:100%; height:100%;/*border:1px solid #666; color:#666;
+font-size:1em;font-family: Droid sans fallback,Arial,Heiti SC, Helvetica;font-weight:100; */}
+
+	
+#ul{margin-top:6em; }
+#btn-login{ margin-top:3em;background-color: #FF7979;font-family:Verdana, Geneva, sans-serif;font-style:normal;font-weight:300;;color:#FFF;width:80%;height:15%}
+#btn-regist{ background-color:#000;
+	-moz-opacity:0.30; /*支持 FireFox 浏览器*/
+	opacity:0.3; 
+color:#fff;font-family:Verdana, Geneva, sans-serif;font-style:normal;width:80%;height:15%;
+font-weight: 300;;border:1px solid #666; }
+
+#btn-regist a{color:#fff;}
+
+
+.errorInfo{
+	color: #f00;
+	font-size:15px;
+	display:block;
+	margin-buttom:0;
+}

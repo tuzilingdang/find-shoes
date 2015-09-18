@@ -1,0 +1,126 @@
+@charset "utf-8";
+/* CSS Document */
+/*
+.page{
+	background-color:#666;
+	animation
+	}*/
+
+#header {
+	text-align:center;
+	/*display:inline;*/
+	height:3.5em;
+}
+
+#title{display: inline;font-size: 1.4em ;font-weight:200;}
+
+#header a img {
+	
+	height:1.4em;
+	width: 3.5em;
+/*	margin-top:5em;
+	margin-left:0em;*/
+ 	margin-top:1.2em; 
+/*	padding-top:1.25em;*/
+ 	margin-left:-8em;
+ 	margin-right:4em; 
+	display:inline;
+	}
+
+
+.content_1{
+	border:none;
+	}
+	
+.form-search{border:none;margin-top:3em;}
+	
+.ui-body-f{border:none;}
+
+.form-search input[placeholder="输入货号"]{
+	font-size:0.8em;
+	color:#d2d2d2;
+	opacity:60%;
+	}
+	
+#input-search {
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
+    font-family: inherit;
+    font-size: 100%;
+	
+/*	background: #ededed url(images/search-3-24.ico) no-repeat 9px center;*/
+/*	background-color:#FFF;*/
+	/*opacity:100%;
+	border-bottom: solid 1px #ccc;*/
+	padding:9px 10px 9px 32px;
+	width:13.75em;
+	height:1.2em;
+	
+	-webkit-border-radius:10em;
+	-moz-border-radius:10em;
+	border-radius:1em;
+	border-bottom-right-radius:0;
+	border-top-right-radius:0;
+	 -webkit-transition:all.5s;
+	 -moz-transition:all .5s;
+	 transition:all .5s;	
+	 margin-left:1.2em;
+	/* margin-right: 2em;*/
+	 border: solid 1px #ccc;
+}
+
+.form-search .submit-div{
+/* 	width:0em;
+	height:0em; */
+	margin-top:-2.45em;
+	margin-left:27.65em;
+	border:none;
+	}
+	
+/*.form-search .submit-div input{
+	height:2.2em;
+	}*/
+
+/*#input-search:focus{
+	width:130px;
+	background-color:#fff;
+	border-color:#6dcff6;
+	
+	-webkit-box-shadow:0 0 5px rgba(109,207,246,.5);
+	-moz-box-shadow:0 0 5px rgba(109,207,246,.5);
+	box-shadow:0 0 5px rgba(109,207,246,.5);
+	 border:none;
+	}*/
+	
+.ui-field-contain {
+	border:none;
+}
+	
+
+#submit-search{
+	width:3em;
+	height:2.44em;
+	margin-top:0.002em;
+/*	margin-right:-6em;*/
+	background-image: url(../images/search-3-48.ico);
+	background-repeat: no-repeat;
+	background-attachment:local;
+	background-size:1.7em auto;
+	background-position: 0.6em .3em; 
+	background-color:#F2F2F2;
+	border: solid 1px #ccc;
+	border-left:hidden;
+	
+	-webkit-border-radius:10em;
+	-moz-border-radius:10em;
+	border-radius:0;
+	border-bottom-right-radius:1em;
+	border-top-right-radius:1em;
+	 -webkit-transition:all.5s;
+	 -moz-transition:all .5s;
+	 transition:all .5s;
+	
+	}
+/*#close{width:24px; height:24px; position:absolute; top:8px; right:-40px; background:url(images/search-3-24.ico) -86px 0 no-repeat; _background-image:url(/jquery实现可显示和关闭的搜索框_duoruiao301502/images/vivo-head-ico.gif);}
+#close:hover{background-position:-86px -25px;}
+*/

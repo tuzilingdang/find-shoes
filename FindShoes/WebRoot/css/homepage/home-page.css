@@ -1,0 +1,265 @@
+#home-page{	
+/*	margin-top: -1.1em;
+	margin-left: -0.56em;
+	margin-right: -0.56em;*/
+	/*background-color:#ebf5eb;*//*浅绿色*/
+	background-color:#F6F6F6;
+	width:100%
+	}
+
+  #header {
+/* 	margin:-.5em;
+	widdth:100%; */
+	height: 3em;
+	background-color:#ff7d81 ;
+}  
+
+#title{
+	position:relative;
+	color: #FFF;
+	font-family: Droid sans fallback,Arial,Heiti SC, Helvetica;	
+	font-size: 1.575em ;
+	font-weight:lighter; 
+/* 	padding-top: 0.3em ; */
+	left:-3.5em;
+	}
+
+.ui-grid-a,.ui-grid-b,.ui-grid-c,.ui-grid-d{overflow:hidden}
+.ui-grid-a .ui-block-a,.ui-grid-a .ui-block-b{width:49.95%}.ui-grid-a>:nth-child(n){width:50%;margin-right:-.5px}.ui-grid-a .ui-block-a{clear:left}
+
+
+
+.ui-grid-c{margin-right:0px;margin-left:0px;}
+.ui-block-a,.ui-block-b,.ui-block-c,.ui-block-d{background-color:#FFF;margin:0;padding-top:0em;border:1px thin #CCC;float:left;min-height:1px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box; text-align:center;}
+.ui-block-a{clear:left;}
+/*.ui-block-a{border-right:0.8px solid #D2D2D2;}*/
+.ui-block-b{border-left:1px solid #F2F2F2}
+.ui-block-c{border-left:1px solid #F2F2F2}
+.ui-block-d{border-left:1px solid #F2F2F2}
+.ui-grid-c .ui-block-a,.ui-grid-c .ui-block-b,.ui-grid-c .ui-block-c,.ui-grid-c .ui-block-d{width:25%}
+.ui-grid-c>:nth-child(n){width:25%;margin-right:-.5px}
+.ui-grid-c .ui-block-a{clear:left}
+	
+.ui-grid-a .ui-block-a img,.ui-grid-a .ui-block-b img,.ui-grid-a .ui-block-c img,.ui-grid-a .ui-block-d img 
+{padding:0.1em 1.56em ;height:7em; width:8em;margin-top: 0.1em}	
+
+.ui-grid-c .ui-block-a img {padding:0.9em 1.56em ;padding-bottom:0;height:2.5em; width:2.5em;}	
+.ui-grid-c .ui-block-b img {padding:0.9em 1.56em;padding-bottom:0;height:2.5em; width:2.5em;}
+.ui-grid-c .ui-block-c img {padding:0.9em 1.56em;padding-bottom:0;height:2.5em; width:2.5em;}
+.ui-grid-c .ui-block-d img {padding:0.9em 1.56em;padding-bottom:0;height:2.5em; width:2.5em;}
+
+
+.ui-grid-c .ui-block-a h4,.ui-grid-c .ui-block-b h4,.ui-grid-c .ui-block-c h4,.ui-grid-c .ui-block-d h4{
+	color:#666;
+	font-family:  Droid sans fallback,Arial,Heiti SC, Helvetica;	
+	font-size: 0.8em ;
+	font-weight:100;
+	text-decoration:none;
+	margin-top:0em;
+	/*margin-left:1.4em;*/
+/*	padding-top:0.06em;
+	padding-left:1.4em*/
+	}	
+
+.content_title{
+	background-color:#FFF0F0;
+	/*background-color:#FFB5BC;*/
+	/*background-color:#F2F2F2;*/
+	margin-top:-1em;/* margin-left:0.425em ;*/
+	width:100%; height: 2.4em; border-bottom: 1px solid #F2F2F2;
+	}
+.ui-content_1{	border:hidden ; width:100%}
+	
+.ui-content_2{
+	position:relative;
+	top:0.5em;
+	margin-top: 0.5em;
+/*	padding:2em;*/
+	border-right-style:hidden;
+	border-left-style:hidden;
+	border-top-color:#fff;
+	border-bottom-color:#fff;
+	}
+		
+.ui-content_2 h2,.ui-content_3 h2,.content_title-h2{
+	font-size: 1.2em;
+	color:#666;
+	font-family: Droid sans fallback,Arial,Heiti SC, Helvetica;	
+	font-weight:100;
+	padding-top: 0.5em;
+	padding-left: 0.8em;
+/*	border-bottom-color:#000;*/
+	}
+
+.ui-content_2  ul{border-top-color:#999;}			
+.ui-content_2 ul li img{border: #999;}
+
+	
+.ui-content_3{
+	margin-top: 0.5em;
+	border-right-style:hidden;
+	border-left-style:hidden;
+/*	border-top-color:#fff;
+	border-bottom-color:#fff;*/
+	border:hidden
+	}
+	
+/* .content-3_block_title{
+	margin-top:-1.2em;
+	} */
+	
+.content-3_block_title h4{
+	color:#666;
+	font-family:  Droid sans fallback,Arial,Heiti SC, Helvetica;	
+	font-size: 0.8em ;
+	font-weight:100;
+	text-decoration:none;
+	}
+	
+
+.ui-grid-a .ui-block-a,.ui-grid-a .ui-block-b{border-top: 1px solid #F2F2F2;}
+
+
+#login{
+	padding-left: 10.7em;
+	margin-top:.6em;
+	text-decoration:none;
+	font:Verdana, Geneva, sans-serif;
+	font-weight:100;
+	font-size: 0.5em ;
+	color: #fff;
+	}
+	
+.ui-content_1{
+	padding:0;
+	border-right-style:hidden;
+	border-left-style:hidden;
+	border-top-color:#ff8080;
+	border-bottom-color:#fff;
+	}
+
+#title{
+	position:relative;
+/*	color: #FFF;
+	font-family: Droid sans fallback,Arial,Heiti SC, Helvetica;	
+	font-size: 1.575em ;
+	font-weight:lighter; */
+/*	margin-left: 3em;
+	margin-top: 0.6em;*/
+/*	margin-left:0.425em;
+	margin-top:2em;*/
+	/*padding-left: 0.7em;*/
+	left: 0em;
+	top: .4em;
+	color: #FFF;
+	}
+
+#addrTitle{
+	color: #FFF;
+	font-family: Arial, Droidsansfallback,Heiti SC, Helvetica;	
+	font-size: 0.5em ;
+	font-weight:lighter;
+	text-decoration:none;
+	}
+	
+
+#carousel{
+	border-top-color:#999;
+	}
+
+.container demo-1{
+	border-color:#000;
+	}
+
+ .content-2_title{
+	width:100%; height: 2.8em; borde: 1px solid #000;
+	}
+	
+#footer{
+	height:2.5em;
+	background-color:#FFF;
+	text-align:center;
+	margin-top: 0.5em;
+	}
+	
+#footer-title{
+	color:#666;
+	font-family: Droid sans fallback,Arial,Heiti SC, Helvetica;
+	font-size:1em;
+	font-weight: lighter;
+/*	margin-top: 1em;*/
+	padding-top:0.9em;
+	}
+
+#last-footer{text-align:center;height:2.8em}	
+#last-footer h3{
+	color:#666;
+	font-family: Droid sans fallback,Arial,Heiti SC, Helvetica;
+	font-size:1em;
+	font-weight: lighter;
+	}
+	
+.price{color:#FF6868/*F69*/;font-size:0.9em;font-family: Droid sans fallback,Arial,Heiti SC, Helvetica;margin-top:-0.86em;margin-bottom:0.3em}
+
+
+
+/*
+.arrow-left {
+  background: url(img/arrows.png) no-repeat left top;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  margin-top: -15px;
+  width: 17px;
+  height: 30px;
+}
+.arrow-right {
+  background: url(img/arrows.png) no-repeat left bottom;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -15px;
+  width: 17px;
+  height: 30px;
+}*/
+
+.swiper-container .swiper-wrapper .swiper-slide blue-slide{max-width:100%;overflow:hidden; }
+.swiper-container {
+  height: 12.3em;
+  width: 100%;
+}
+
+.swiper-wrapper{
+  width: 100%;
+  height: 12.3em;
+  color: #fff;
+  text-align: center;}
+  
+.content-slide {
+  padding: 20px;
+  color: #fff;
+}
+.title {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+.pagination {
+  position: absolute;
+  left: 0;
+  text-align: center;
+  bottom:5px;
+  width: 100%;
+}
+.swiper-pagination-switch {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background: #CCC;
+  margin-right: 8px;
+  opacity: 0.6;
+  cursor: pointer;
+}
+.swiper-active-switch {
+  background: #84c0cd;
+}

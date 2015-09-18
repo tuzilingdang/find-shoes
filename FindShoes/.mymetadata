@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="FindShoes"
+  id="myeclipse.1426055901719"
+  context-root="/FindShoes"
+  j2ee-spec="6.0"
+  archive="FindShoes.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

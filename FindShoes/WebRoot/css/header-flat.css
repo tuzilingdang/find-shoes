@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+#page{
+	background-color: #F5F5F5;
+	}
+
+#header {
+	text-align:center;
+	/*display:inline;*/
+	height:1.5em;
+	position:relative; padding-bottom:.8em
+}
+
+
+#title{display:block;margin-top:0.1em;position: absolute;margin-left:5.6em;
+font-weight:200;
+}
+
+#header-img {
+	
+	height:1.6em; 
+	width: 4em;
+	padding-top:.8em;
+	margin-left:-.5em;
+/*		margin-right:4em;*/
+	display:block;
+	position:relative;
+	}
