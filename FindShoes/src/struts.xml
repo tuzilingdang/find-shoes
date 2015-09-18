@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-		<package name="user" extends="json-default">
+	<package name="user" extends="json-default">
 		
-			 <!--注册  -->
-		    <action name="regist" class="com.action.userAction" method="regist">
-		        <result name="success">/personal.jsp</result>
-		        <result name="error">/tel-regist.jsp</result>
-		    </action>
-		    
-		    <action name="login" class="com.action.userAction" method="login">
-		        <result name="success">/homepage.jsp</result>
-		        <result name="error">/login.jsp</result>
-		    </action>
-		    
-		    <action name="logout" class="com.action.userAction" method="logout">
-		        <result name="success">/login.jsp</result>
-		        <result name="error">/personal.jsp</result>
-		    </action>
+		 <!--注册  -->
+	    <action name="regist" class="com.action.userAction" method="regist">
+	        <result name="success">/personal.jsp</result>
+	        <result name="error">/tel-regist.jsp</result>
+	    </action>
 	    
-			<!-- 	    货号查找 -->
-		    <action name="searchGoods" class="com.action.goodsAction" method="searchGoods">
-		        <result name="success">/goodsIdSearchSucc.jsp</result>
-		        <result name="error">/goodsIdSearchErr.jsp</result>
-		    </action> 
-		  
-		    
+	    <action name="login" class="com.action.userAction" method="login">
+	        <result name="success">/homepage.jsp</result>
+	        <result name="error">/login.jsp</result>
+	    </action>
+	    
+	    <action name="logout" class="com.action.userAction" method="logout">
+	        <result name="success">/login.jsp</result>
+	        <result name="error">/personal.jsp</result>
+	    </action>
+    
+		<!-- 	    货号查找 -->
+	    <action name="searchGoods" class="com.action.goodsAction" method="searchGoods">
+	        <result name="success">/goodsIdSearchSucc.jsp</result>
+	        <result name="error">/goodsIdSearchErr.jsp</result>
+	    </action> 
+	  
+	    
 		<!-- 	    条件分类查找  -->
 	    <action name="classifyFindGoods" class="com.action.goodsAction" method="classifyFindGoods">
 	        <result name="success">/classify-find.jsp</result>
@@ -42,7 +42,7 @@
 	        <result name="success">/personal.jsp</result>
 	        <result name="error">/login.jsp</result>
 	    </action>
-	    
+    
 	  <!-- 查看文章列表 -->
 	     <action name="Article" class="com.action.articleAction" method="showArticle">
 	        <result name="success">/article.jsp</result>
@@ -57,67 +57,61 @@
 	   
 	    
 	      <!-- test -->
-		    <action name="test" class="com.action.goodsAction" method="test">
-		        <result name="success">test/showTest.jsp</result>
-		        <result name="error">test/test.jsp</result>
-		    </action> 
-		    
-		    <action name="loadImgUrl" class="com.action.ajaxAction" method="loadImgUrl">
-	            <result type="json">
-	            </result>
-	        </action>
-	        
-	        <action name="checkUserId" class="com.action.ajaxAction" method="checkUserId">
-	            <result type="json">
-	            </result>
-	        </action>
-	        
-	         <action name="like" class="com.action.ajaxAction" method="like">
-	            <result type="json">
-	            </result>
-	        </action>
-	        
-		     <action name="unlike" class="com.action.ajaxAction" method="unlike">
-	            <result type="json">
-	            </result>
-	        </action>
-	        
-	        <action name="collection" class="com.action.ajaxAction" method="collection">
-	            <result type="json">
-	            </result>
-	        </action>
-	        
-	        <action name="uncollection" class="com.action.ajaxAction" method="uncollection">
-	            <result type="json">
-	            </result>
-	        </action>
-	        <!-- 鞋子点赞收藏 -->
-	         <action name="shoesLike" class="com.action.ajaxAction" method="shoesLike">
-	            <result type="json">
-	            </result>
-	        </action>
-	        
-	         <action name="shoesUnlike" class="com.action.ajaxAction" method="shoesUnlike">
-	            <result type="json">
-	            </result>
-	        </action>
-	        
-	         <action name="shoesCollection" class="com.action.ajaxAction" method="shoesCollection">
-	            <result type="json">
-	            </result>
-	        </action>
-	        
-	         <action name="shoesUncollection" class="com.action.ajaxAction" method="shoesUncollection">
-	            <result type="json">
-	            </result>
-	        </action>
-		    
-		</package>
+	    <action name="test" class="com.action.goodsAction" method="test">
+	        <result name="success">test/showTest.jsp</result>
+	        <result name="error">test/test.jsp</result>
+	    </action> 
+	    
+	    <action name="loadImgUrl" class="com.action.ajaxAction" method="loadImgUrl">
+	        <result type="json">
+	        </result>
+	    </action>
+    
+	    <action name="checkUserId" class="com.action.ajaxAction" method="checkUserId">
+	        <result type="json">
+	        </result>
+	    </action>
+	    
+	     <action name="like" class="com.action.ajaxAction" method="like">
+	        <result type="json">
+	        </result>
+	    </action>
+	    
+	     <action name="unlike" class="com.action.ajaxAction" method="unlike">
+	        <result type="json">
+	        </result>
+	    </action>
+	    
+	    <action name="collection" class="com.action.ajaxAction" method="collection">
+	        <result type="json">
+	        </result>
+	    </action>
+    
+   		 <action name="uncollection" class="com.action.ajaxAction" method="uncollection">
+	        <result type="json">
+	        </result>
+	    </action>
+	    <!-- 鞋子点赞收藏 -->
+	     <action name="shoesLike" class="com.action.ajaxAction" method="shoesLike">
+	        <result type="json">
+	        </result>
+	    </action>
+	    
+	     <action name="shoesUnlike" class="com.action.ajaxAction" method="shoesUnlike">
+	        <result type="json">
+	        </result>
+	    </action>
+	    
+	     <action name="shoesCollection" class="com.action.ajaxAction" method="shoesCollection">
+	        <result type="json">
+	        </result>
+	    </action>
+	    
+	     <action name="shoesUncollection" class="com.action.ajaxAction" method="shoesUncollection">
+	        <result type="json">
+	        </result>
+	    </action>
+    
+	</package>
 		
-<!--  
-		<package name="ajax" extends="json-default">
-			
-		  	
-		</package>
-		-->	
 </struts>    
