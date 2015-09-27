@@ -4,8 +4,11 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
+
 import javax.servlet.http.HttpSession;
+
 import org.apache.struts2.ServletActionContext;
+
 import com.dao.PrivilegeDAO;
 import com.dao.UsersDAO;
 import com.model.PrivilegeId;
@@ -104,27 +107,44 @@ public class userAction extends ActionSupport{
 	public String regist() throws Exception{
 		UsersDAO userDao=new UsersDAO(); 
 		if(user.getNick()!=null && user.getPassword()!=null ){
-			//填写用户其他信息
-			String userid = getRandomUserId();
-			System.out.println(userid);
-			user.setUserId(getRandomUserId());
-			user.setBalance(0.0);
-			user.setIp(userDao.getIp());
-			user.setDefunct("N");
-			user.setVip("N");
-			Timestamp ts = new Timestamp(new Date().getTime());
-			user.setAccesstime(ts);
-			user.setPassword(MD5Util.encode2hex(user.getPassword()));
-			user.setRegTime(ts);		
-			user.setTelephone(user.getTelephone());
-			userDao.save(user);				
-			
-			HttpSession session=ServletActionContext.getRequest().getSession();
-			session.setAttribute("user", user);
-			session.setAttribute("uid", user.getUserId());
-			session.setAttribute("ublance", user.getBalance());
+/*			if(!(user.getTelephone()==null&&user.getEmail()==null)){
+				if(userDao.userId_exist(user.getUserId())){
+					errorInfo="该id已被注册";
+					return ERROR;
+				}
+			else if (userDao.userEmail_exist(user.getEmail())){
+					errorInfo="该邮箱已被注册";
+					return ERROR;	
+				}
+				else if (userDao.userTel_exist(user.getTelephone())){
+					errorInfo="该手机已被注册";
+					return ERROR;	
+				}
+				else {	*/			
+/*			System.out.println("注册密码"+user.getPassword());
+			System.out.println("输入密码"+MD5Util.encode2hex(user.getPassword()));*/
+					//填写用户其他信息
+					String userid = getRandomUserId();
+					System.out.println(userid);
+					user.setUserId(getRandomUserId());
+					user.setBalance(0.0);
+					user.setIp(userDao.getIp());
+					user.setDefunct("N");
+					user.setVip("N");
+					Timestamp ts = new Timestamp(new Date().getTime());
+					user.setAccesstime(ts);
+					user.setPassword(MD5Util.encode2hex(user.getPassword()));
+					user.setRegTime(ts);		
+					user.setTelephone(user.getTelephone());
+					userDao.save(user);				
 					
-			return SUCCESS;	
+					HttpSession session=ServletActionContext.getRequest().getSession();
+					session.setAttribute("user", user);
+					session.setAttribute("uid", user.getUserId());
+					session.setAttribute("ublance", user.getBalance());
+					
+					
+					return SUCCESS;	
 		}
 		else 
 			return ERROR;
@@ -135,11 +155,16 @@ public class userAction extends ActionSupport{
 	
     public static String getRandomUserId() {  
     	  
-        SimpleDateFormat simpleDateFormat;    
-        simpleDateFormat = new SimpleDateFormat("yyyyMMdd");    
-        Date date = new Date();   
+        SimpleDateFormat simpleDateFormat;  
+  
+        simpleDateFormat = new SimpleDateFormat("yyyyMMdd");  
+  
+        Date date = new Date();  
+  
         String str = simpleDateFormat.format(date);  
+  
         Random random = new Random();  
+  
         int rannum = (int) (random.nextDouble() * (99 - 10 + 1)) + 10;// 获取2位随机数  
         String ranstring =  str + String.valueOf(rannum);
         return ranstring;// 当前时间  

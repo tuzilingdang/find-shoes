@@ -135,7 +135,7 @@
                          <%
                               ArticleDAO articleDAO = new ArticleDAO();
                               List<Article> articleList = new ArrayList<Article>();
-                             articleList = articleDAO.getArticlesForIndex();
+                              articleList = articleDAO.getArticlesForIndex();
                               int articleLength = articleList.size();
                               System.out.println("articleList.size() == "+articleList.size());
                               for(int i =0;i<articleLength;i++){

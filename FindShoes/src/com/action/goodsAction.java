@@ -1,9 +1,12 @@
 package com.action;
 
 import java.util.*;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.dao.*;
 import com.model.*;
@@ -11,6 +14,7 @@ import com.model.*;
 public class goodsAction extends ActionSupport{
 	
 	private String searchStr; //搜索的货号
+	
 	//checkbox内容
 	private String ckBrand;
 	private String ckSeason;
@@ -205,6 +209,13 @@ public class goodsAction extends ActionSupport{
 	public String test() throws Exception {
 		ShoesDAO shoesDAO = new ShoesDAO();
 		testList = shoesDAO.test();
+		//为得到的goodsId找到对应的照片
+		/*ImageDAO imgDao = new ImageDAO();
+		for(Shoes shoe:testList){
+
+		    imageList.add(imgDao.findByGoodsIdSingle(shoe.getGoodsId()));
+
+		}*/
 		ImageDAO imgDao = new ImageDAO();
 		imageList = imgDao.findByGoodsId("-2");	
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -213,11 +224,14 @@ public class goodsAction extends ActionSupport{
 	}
 	
 	//货号搜索【一定只会搜索出一个货号】
-	public String searchGoods() throws Exception {		
+	public String searchGoods() throws Exception {
+		
 		//System.out.println("搜索的货号searchStr == "+searchStr);
 		OnlineStoreDAO olsDao=new OnlineStoreDAO();
 		OnlineStore ols = new OnlineStore();
 		ols = olsDao.findTopOneByGoodsId(searchStr);
+		
+//		System.out.println("ols == "+ols.getImgUrl());
 		
 		if(ols == null)
 			return ERROR;
@@ -235,10 +249,13 @@ public class goodsAction extends ActionSupport{
 	 */
 
 	
+	
 	//鞋子详情页面
 	public String goodsDetail() throws Exception {
-		// action 中获得 request		
-		HttpServletRequest request = ServletActionContext.getRequest();	
+		// action 中获得 request
+		
+		HttpServletRequest request = ServletActionContext.getRequest();
+	
 		//判断是否登陆 如果登陆则读取改用户对改鞋子的点赞收藏情况
 		HttpSession session = ServletActionContext.getRequest().getSession();		
 		int userId =0 ;
@@ -250,8 +267,11 @@ public class goodsAction extends ActionSupport{
 		}
 	    System.out.println(userId);
 		
-		String gId=request.getParameter("gid"); //要显示详情的鞋子Id	
+		String gId=request.getParameter("gid"); //要显示详情的鞋子Id
+//		System.out.println("gid == "+ gId);
+		
 		showDetail = new ShowDetail(); //详情显示对象初始化
+		//System.out.println("kitty");
 		showDetail.generateClass(gId,userId);
 		System.out.println(showDetail.getIsLiked());
 		System.out.println(showDetail.getNumsOfLike());
@@ -259,7 +279,9 @@ public class goodsAction extends ActionSupport{
 	}
 	
 	//条件分类查找
-	public String classifyFindGoods() throws Exception {	
+	public String classifyFindGoods() throws Exception {
+		
+		/*System.out.println("ck元素 == "+ckBrand);*/	
 		// action 中获得 request
         HttpServletRequest request = ServletActionContext.getRequest();
         String pageNowS = "1";//默认页数为1；
@@ -274,9 +296,15 @@ public class goodsAction extends ActionSupport{
 		    hasPrePage = true;
 		}
         System.out.println("pageNow="+pageNow);
+//		String test=request.getParameter("test");
+		
+		//已获取所有数据，现挑选出有值的所有元素
+		//优先处理一对一的请求，这样就可以只写一个sql查询而缩小查询范围
 		classifyShoesList = new ArrayList<Shoes>();
 		Map<String, String[]> classifyMap = null; //存放条件属性
+		//classifyMap=getClassifyMap();
 		HttpSession session = ServletActionContext.getRequest().getSession();
+		//判断是否要分页,是的话则从session里面搜索map，不是分页则将map存储到session里面
 		String type = "search";
 		if (request.getParameter("page")!=null) {
 			type = request.getParameter("page");
@@ -295,22 +323,43 @@ public class goodsAction extends ActionSupport{
 			
 		}
 		//test ok
+//		String sArr[];
+//		for(String keys:classifyMap.keySet()){
+//			sArr=classifyMap.get(keys);
+//			for(String s:sArr)
+//				System.out.println(keys+" == "+s);
+//		}
+//		System.out.println();
 		
 		//去查找数据库，得到最终显示的鞋子列表
 		ClassifyFindDao classifydao = new ClassifyFindDao();
 		bArray = new ArrayList<Boolean>();
 		classifyShoesList=classifydao.classifyFindSheosN(classifyMap, pageNow,bArray);
 		//因为java没有引用传递，所以用引用变量数组来更改这个boolean值
-		hasNextPage = bArray.get(0);	
+		hasNextPage = bArray.get(0);
+		//System.out.println(bArray.get(0));
+		//System.out.println(classifyShoesList.size());
+		//PageDao pageDao= new PageDao();
+		//classifyShoesList = pageDao.init(classifyShoesList, 2, 5);		
 		showShoesList = new ArrayList<showShoes>();//最终展示的初始化
 		OnlineStoreDAO olsDao=new OnlineStoreDAO();//用于找到onlineStore的List
 		List<OnlineStore> tmpOlsList;//用来获取onlineStore的List
-
+		
+		/*System.out.println("ck元素 == ");*/
+		//System.out.println("classifyShoesList== "+classifyShoesList.size());
+//		for (Shoes shoes : classifyShoesList) {
+//			System.out.println(shoes.getGoodsId());
+//		}
 		//先判断是否为null
 		if(classifyShoesList!=null)
 		{
 		for(Shoes tmp:classifyShoesList){
 			tmpOlsList = olsDao.findByGoodsId(tmp.getGoodsId());
+			//for(OnlineStore tmp2:tmpOlsList){
+//				System.out.println("onlineUrl == "+tmp2.getImgUrl());
+//				if (showShoesList.size()>=10) {
+//					break;
+//				}
 			    OnlineStore tmp2 = tmpOlsList.get(0);
 				showShoes tmpShowShoes = new showShoes();//展示的临时实体类，showShoesList会将其add进去
 				tmpShowShoes.generateClass(tmp2.getOnlineUrl());
@@ -322,14 +371,27 @@ public class goodsAction extends ActionSupport{
 		showShoesListSize = showShoesList.size();
 		System.out.println("showShoesListSize ==" + showShoesListSize);
 		
+/*		HttpSession session=ServletActionContext.getRequest().getSession();*/
+/*		List<HttpSession> sessionList =(List)ServletActionContext.getRequest().getSession();*/
 		ServletActionContext.getRequest().getSession().setAttribute("showShoesList",showShoesList);
 /*		sessionList.setAttribute("showShoesList ",showShoesList); */
 		
 		return SUCCESS;
 	}
 	
+/*	public String findBrandnew() throws Exception {
+		brandShoesList = new ArrayList<Shoes>();
+		Map<String, String[]> tmpMap = new HashMap<String, String[]>();
+		if(ckBrand.length()!=0)
+			tmpMap.put("ckBrand", ckBrand.split(","));
+		
+		return SUCCESS;
+	}*/
+	
+	
 	private Map<String, String[]> getClassifyMap() {
 		Map<String, String[]> tmpMap = new HashMap<String, String[]>();//临时存放条件属性
+//		System.out.println("ckSeason.length == "+ckSeason.length());
 		if (ckBrand==null) {
 			return null;
 		}
@@ -343,68 +405,62 @@ public class goodsAction extends ActionSupport{
 		//一对一关系
 		if (ckSeason==null)
 			ckSeason = "";
-
 		if(ckSeason.length()!=0)
 			//ckSeason不为空，用户选择了ckSeason
 			tmpMap.put("ckSeason", ckSeason.split(","));
 		
+//		System.out.println("ckPrice.length()!=0 &&ckPrice!=null");
+//		System.out.println("ckPrice.length()!=0 &&ckPrice!=null"+ckPrice.length());
 		if (ckPrice==null)
 			ckPrice = "";
-
 		if(ckPrice.length()!=0)
 			tmpMap.put("ckPrice", ckPrice.split(","));
-
+//		System.out.println("ckPrice.length()!=0 &&ckPrice!=null");
+		
+/*		if(ckHotPoint.length()!=0)
+			tmpMap.put("ckHotPoint", ckHotPoint.split(","));*/
 		if (ckHeelHeight==null)
 			ckHeelHeight = "";
-
 		if(ckHeelHeight.length()!=0)
 			tmpMap.put("ckHeelHeight", ckHeelHeight.split(","));
 		
 		if (ckFashion==null)
 			ckFashion = "";
-
 		if(ckFashion.length()!=0)
 			tmpMap.put("ckFashion", ckFashion.split(","));
 		
 		if (ckOccasion==null)
 			ckOccasion = "";
-
 		if(ckOccasion.length()!=0)
 			tmpMap.put("ckcOccasion", ckOccasion.split(","));
 		
 		if (ckStyle==null)
 			ckStyle = "";
-
 		if(ckStyle.length()!=0)
 			tmpMap.put("ckStyle", ckStyle.split(","));
 		
 		if (ckToe==null)
 			ckToe = "";
-
 		if(ckToe.length()!=0)
 			tmpMap.put("ckToe", ckToe.split(","));
 		
 		if (ckHeelStyle==null)
 			ckHeelStyle = "";
-
 		if(ckHeelStyle.length()!=0)
 			tmpMap.put("ckHeelStyle", ckHeelStyle.split(","));
 		
 		if (ckLeather==null)
 			ckLeather = "";
-
 		if(ckLeather.length()!=0)
 			tmpMap.put("ckLeather", ckLeather.split(","));
 		
 		if (ckSole==null)
 			ckSole = "";
-
 		if(ckSole.length()!=0)
 			tmpMap.put("ckSole", ckSole.split(","));
 		
 		if (ckUpperHeight==null)
 			ckUpperHeight = "";
-		
 		if(ckUpperHeight.length()!=0)
 			tmpMap.put("ckUpperHeight", ckUpperHeight.split(","));
 		
